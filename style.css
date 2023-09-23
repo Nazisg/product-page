@@ -1,0 +1,17 @@
+@font-face {
+  font-family: roboto-ligh-300;
+  src: url(./fonts/Roboto-Light.ttf);
+}
+@font-face {
+  font-family: roboto-regular-400;
+  src: url(./fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: roboto-medium-500;
+  src: url(./fonts/Roboto-Medium.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}/*# sourceMappingURL=style.css.map */
