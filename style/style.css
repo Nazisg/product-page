@@ -1,14 +1,14 @@
 @font-face {
   font-family: roboto-ligh-300;
-  src: url(./fonts/Roboto-Light.ttf);
+  src: url(../fonts/Roboto-Light.ttf);
 }
 @font-face {
   font-family: roboto-regular-400;
-  src: url(./fonts/Roboto-Regular.ttf);
+  src: url(../fonts/Roboto-Regular.ttf);
 }
 @font-face {
   font-family: roboto-medium-500;
-  src: url(./fonts/Roboto-Medium.ttf);
+  src: url(../fonts/Roboto-Medium.ttf);
 }
 * {
   margin: 0;
@@ -18,10 +18,16 @@
   font-family: roboto-regular-400;
 }
 
+body {
+  background-color: #f6f6f6;
+}
+
 .page {
   display: flex;
   flex-direction: column;
   background-color: #f6f6f6;
+  width: 95%;
+  margin: 0 auto;
 }
 .page .one-product {
   display: flex;
@@ -76,18 +82,16 @@
   display: flex;
   align-items: center;
 }
-.page .one-product .scroll-boxes .product-box .img-slider-box .slider .prev, .page .one-product .scroll-boxes .product-box .img-slider-box .slider .next {
+.page .one-product .scroll-boxes .product-box .img-slider-box .slider .prev,
+.page .one-product .scroll-boxes .product-box .img-slider-box .slider .next {
   cursor: pointer;
 }
-.page .one-product .scroll-boxes .product-box .img-slider-box .slider .images {
+.page .one-product .scroll-boxes .product-box .img-slider-box .slider .slider-container .images {
   display: flex;
   gap: 10px;
   align-items: center;
-  border: 1px solid;
-  width: 60%;
-  overflow: hidden;
 }
-.page .one-product .scroll-boxes .product-box .img-slider-box .slider .images div {
+.page .one-product .scroll-boxes .product-box .img-slider-box .slider .slider-container .images div {
   padding: 10px;
   border: 1px solid #ededed;
   border-radius: 5px;
@@ -169,8 +173,8 @@
   gap: 20px;
 }
 .page .one-product .scroll-boxes .product-box .content .color-memory-box .memory-box .memories div {
-  border: 1px solid #E7E7E7;
-  background-color: #FFF;
+  border: 1px solid #e7e7e7;
+  background-color: #fff;
   border-radius: 7px;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
@@ -179,8 +183,8 @@
   padding: 7px;
 }
 .page .one-product .scroll-boxes .product-box .content .color-memory-box .memory-box .memories .active-memory {
-  border: 1px solid #F58634;
-  background-color: #F6F6F6;
+  border: 1px solid #f58634;
+  background-color: #f6f6f6;
 }
 .page .one-product .scroll-boxes .product-box .content table tr td {
   padding-top: 10px;
@@ -213,10 +217,18 @@
 .page .one-product .scroll-boxes .description-box .text {
   width: 85%;
 }
-.page .one-product .scroll-boxes .description-box .text p {
+.page .one-product .scroll-boxes .description-box .text .description-text {
   color: #2d2d2d;
   line-height: 23px;
   padding-left: 15px;
+  display: inline;
+}
+.page .one-product .scroll-boxes .description-box .text .more {
+  color: #0040a0;
+  cursor: pointer;
+}
+.page .one-product .scroll-boxes .description-box .text .description-text-more {
+  display: none;
 }
 .page .one-product .scroll-boxes .evaluation-box {
   background-color: #fff;
@@ -256,11 +268,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
 }
 .page .one-product .scroll-boxes .evaluation-box .comment-boxes .comment-box {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0 20px;
 }
 .page .one-product .scroll-boxes .evaluation-box .comment-boxes .comment-box .title {
   display: flex;
@@ -294,10 +308,32 @@
   width: 85%;
   line-height: 25px;
 }
+.page .one-product .scroll-boxes .evaluation-box .comment-boxes .more-comment {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(181deg, rgba(255, 255, 255, 0.42) -45.52%, #FFF 99.11%);
+}
+.page .one-product .scroll-boxes .evaluation-box .comment-boxes .more-comment div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.page .one-product .scroll-boxes .evaluation-box .comment-boxes .hide-comment {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+}
 .page .one-product .scroll-boxes .evaluation-box .comment-write-box {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 0 20px;
 }
 .page .one-product .scroll-boxes .evaluation-box .comment-write-box .inputs {
   width: 100%;
@@ -349,8 +385,19 @@
   gap: 10px;
   align-items: center;
 }
+.page .one-product .scroll-boxes .evaluation-box .star-btn .stars svg {
+  cursor: pointer;
+}
+.page .one-product .scroll-boxes .evaluation-box .star-btn .stars svg:hover path {
+  fill: #fdd835;
+}
+.page .one-product .scroll-boxes .evaluation-box .star-btn .stars #star-1:hover path,
+.page .one-product .scroll-boxes .evaluation-box .star-btn .stars #star-2:hover path,
+.page .one-product .scroll-boxes .evaluation-box .star-btn .stars #star-2:hover #star-1 path {
+  fill: #fdd835;
+}
 .page .one-product .scroll-boxes .evaluation-box .star-btn .btn {
-  background-color: #F58634;
+  background-color: #f58634;
   color: white;
   border-radius: 4px;
   border: none;
@@ -360,6 +407,7 @@
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
+  cursor: pointer;
 }
 .page .one-product .fix-boxes {
   display: flex;
@@ -409,6 +457,12 @@
   flex-direction: column;
   gap: 20px;
 }
+.page .one-product .fix-boxes .box-2 .number input {
+  outline: none;
+  border: none;
+  padding: 5px;
+  font-size: 16px;
+}
 .page .one-product .fix-boxes .box-2 button {
   background-color: #f6f6f6;
   border: none;
@@ -423,8 +477,12 @@
   flex-direction: column;
   gap: 20px;
 }
+.page .one-product .fix-boxes .box-3 .dropdown {
+  position: relative;
+}
 .page .one-product .fix-boxes .box-3 .dropdown .select {
   padding: 10px;
+  height: 40px;
   border-radius: 5px;
   border: 1px solid #ededed;
   -webkit-border-radius: 5px;
@@ -434,10 +492,72 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  cursor: pointer;
 }
-.page .one-product .fix-boxes .box-3 .dropdown .item {
+.page .one-product .fix-boxes .box-3 .dropdown .select .item {
   display: flex;
   gap: 10px;
+  align-items: center;
+}
+.page .one-product .fix-boxes .box-3 .dropdown .select .down {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.page .one-product .fix-boxes .box-3 .dropdown .df-kart {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.page .one-product .fix-boxes .box-3 .dropdown .option {
+  position: absolute;
+  top: 45px;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border: 1px solid #ededed;
+  display: none;
+}
+.page .one-product .fix-boxes .box-3 .dropdown .option .item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+.page .one-product .fix-boxes .box-3 .dropdown .option .item:hover {
+  background-color: #efefef;
+}
+.page .one-product .fix-boxes .box-3 .btns {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+.page .one-product .fix-boxes .box-3 .btns button {
+  width: 50%;
+  border-radius: 4px;
+  padding: 10px 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-size: 16px;
+}
+.page .one-product .fix-boxes .box-3 .btns .btn-price {
+  background-color: #f6f6f6;
+  color: rgba(45, 45, 45, 0.7);
+  border: 1px solid #f6f6f6;
+}
+.page .one-product .fix-boxes .box-3 .btns .btn-order {
+  border: 1px solid #169f00;
+  background-color: #fff;
+  color: #169f00;
 }
 .page .other-products-box {
   display: flex;
@@ -448,14 +568,14 @@
 }
 .page .other-products-box .products {
   display: flex;
-  gap: 25px;
+  gap: 20px;
 }
 .page .other-products-box .products .item {
   background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 17px;
-  padding: 20px;
+  padding: 15px;
 }
 .page .other-products-box .products .item .img-box {
   display: flex;
@@ -476,15 +596,15 @@
   align-items: center;
 }
 .page .other-products-box .products .item .prices .price h3 {
-  color: #FF0000;
+  color: #ff0000;
 }
 .page .other-products-box .products .item .prices del {
   font-size: 14px;
-  color: #2D2D2D;
+  color: #2d2d2d;
 }
 .page .other-products-box .products .item .monthly-pay {
   width: 100%;
-  background-color: #FDEEE2;
+  background-color: #fdeee2;
   padding: 5px;
   font-size: 16px;
   display: flex;
@@ -492,7 +612,7 @@
   justify-content: center;
 }
 .page .other-products-box .products .item .monthly-pay .red {
-  color: #FF0000;
+  color: #ff0000;
 }
 .page .other-products-box .products .item .monthly-pay .pay {
   display: flex;
@@ -506,44 +626,45 @@
   align-items: center;
 }
 .page .other-products-box .products .item .delivery p {
-  color: #009E36;
+  color: #009e36;
   font-size: 14px;
   font-weight: 600;
 }
-.page .footer {
+
+.footer {
   background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
 }
-.page .footer .category-boxes {
+.footer .category-boxes {
   display: flex;
   justify-content: space-around;
   padding: 20px;
 }
-.page .footer .category-boxes .contact-box {
+.footer .category-boxes .contact-box {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.page .footer .category-boxes .contact-box .location {
+.footer .category-boxes .contact-box .location {
   width: 65%;
   line-height: 23px;
 }
-.page .footer .category-boxes .contact-box p {
+.footer .category-boxes .contact-box p {
   font-size: 13px;
   padding-top: 10px;
 }
-.page .footer .category-boxes .contact-box .sosial-media-box {
+.footer .category-boxes .contact-box .sosial-media-box {
   display: flex;
   gap: 10px;
   align-items: center;
 }
-.page .footer .category-boxes .contact-box .sosial-media-box div {
+.footer .category-boxes .contact-box .sosial-media-box div {
   width: 40px;
   height: 40px;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -553,22 +674,22 @@
   align-items: center;
   justify-content: center;
 }
-.page .footer .category-boxes .category li {
+.footer .category-boxes .category li {
   padding-top: 15px;
   font-size: 13px;
   font-family: roboto-ligh-300;
 }
-.page .footer .line {
+.footer .line {
   width: 100%;
   height: 1px;
   background-color: #a4a4a4;
 }
-.page .footer .foot {
+.footer .foot {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-.page .footer .foot p {
+.footer .foot p {
   font-size: 12px;
 }/*# sourceMappingURL=style.css.map */
