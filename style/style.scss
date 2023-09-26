@@ -48,7 +48,7 @@ body{
           flex-direction: column;
           gap: 10px;
 
-          .img-box {
+          .img-box-slider {
             border: 1px solid #ededed;
             border-radius: 4px;
             -webkit-border-radius: 4px;
@@ -60,6 +60,13 @@ body{
             display: flex;
             justify-content: center;
             align-items: center;
+
+            img{
+              width: 283px;
+            }
+            video{
+              margin: 56px 0;
+            }
 
             .new {
               position: absolute;
@@ -84,11 +91,9 @@ body{
               cursor: pointer;
             }
             .slider-container {
-              // transform: translateX(-60px);
-              // -webkit-transform: translateX(-60px);
-              // -moz-transform: translateX(-60px);
-              // -ms-transform: translateX(-60px);
-              // -o-transform: translateX(-60px);
+              width: 260px;
+    overflow: hidden;
+
 
               .images {
                 display: flex;
@@ -97,7 +102,7 @@ body{
                 // border: 1px solid;
                 // width: 60%;
                 // overflow: hidden;
-                div {
+                .img-item {
                   padding: 10px;
                   border: 1px solid #ededed;
                   border-radius: 5px;
@@ -105,6 +110,13 @@ body{
                   -moz-border-radius: 5px;
                   -ms-border-radius: 5px;
                   -o-border-radius: 5px;
+                  z-index: 99;
+                  width: 60px;
+                  height: 60px;
+                  img{
+                    width: 35px;
+                    height: 35px;
+                  }
                 }
               }
             }
@@ -139,6 +151,10 @@ body{
               display: flex;
               gap: 10px;
               align-items: center;
+
+              .fill-red{
+                fill:#FF0000 ;
+              }
             }
           }
           .color-memory-box {
@@ -154,6 +170,18 @@ body{
                 gap: 15px;
                 align-items: center;
                 justify-content: center;
+
+                .black{
+                  border: 1px solid #2F2F2F;
+                }
+                
+                .red{
+                  border: 1px solid #FF0000;
+                }
+                
+                .yellow{
+                  border: 1px solid #F3CC00;
+                }
                 div {
                   display: flex;
                   align-items: center;
@@ -161,14 +189,14 @@ body{
                   padding: 3px;
                   border-radius: 50%;
                   background-color: #ededed;
+                  border: 1px solid #ededed ;
                   -webkit-border-radius: 50%;
                   -moz-border-radius: 50%;
                   -ms-border-radius: 50%;
                   -o-border-radius: 50%;
+                  cursor: pointer;
                 }
-                .active-color {
-                  border: 1px solid red;
-                }
+               
               }
             }
             .memory-box {
@@ -188,6 +216,7 @@ body{
                   -ms-border-radius: 7px;
                   -o-border-radius: 7px;
                   padding: 7px;
+                  cursor: pointer;
                 }
                 .active-memory {
                   border: 1px solid #f58634;
@@ -281,6 +310,9 @@ body{
           width: 100%;
           height: 1px;
           background-color: #ededed;
+        }
+        .top{
+          margin-top: 20px;
         }
         .comment-boxes {
           display: flex;
@@ -459,6 +491,7 @@ body{
             width: 240px;
             background-color: #f58634;
             color: white;
+            border: none;
             border-radius: 4px;
             font-size: 16px;
             padding: 10px 0;
@@ -613,6 +646,8 @@ body{
           display: flex;
           justify-content: center;
           align-items: center;
+
+         
         }
         .title {
           font-size: 16px;

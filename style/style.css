@@ -51,7 +51,7 @@ body {
   flex-direction: column;
   gap: 10px;
 }
-.page .one-product .scroll-boxes .product-box .img-slider-box .img-box {
+.page .one-product .scroll-boxes .product-box .img-slider-box .img-box-slider {
   border: 1px solid #ededed;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -64,7 +64,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-.page .one-product .scroll-boxes .product-box .img-slider-box .img-box .new {
+.page .one-product .scroll-boxes .product-box .img-slider-box .img-box-slider img {
+  width: 283px;
+}
+.page .one-product .scroll-boxes .product-box .img-slider-box .img-box-slider video {
+  margin: 56px 0;
+}
+.page .one-product .scroll-boxes .product-box .img-slider-box .img-box-slider .new {
   position: absolute;
   right: 0;
   top: 0;
@@ -86,12 +92,16 @@ body {
 .page .one-product .scroll-boxes .product-box .img-slider-box .slider .next {
   cursor: pointer;
 }
+.page .one-product .scroll-boxes .product-box .img-slider-box .slider .slider-container {
+  width: 260px;
+  overflow: hidden;
+}
 .page .one-product .scroll-boxes .product-box .img-slider-box .slider .slider-container .images {
   display: flex;
   gap: 10px;
   align-items: center;
 }
-.page .one-product .scroll-boxes .product-box .img-slider-box .slider .slider-container .images div {
+.page .one-product .scroll-boxes .product-box .img-slider-box .slider .slider-container .images .img-item {
   padding: 10px;
   border: 1px solid #ededed;
   border-radius: 5px;
@@ -99,6 +109,13 @@ body {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  z-index: 99;
+  width: 60px;
+  height: 60px;
+}
+.page .one-product .scroll-boxes .product-box .img-slider-box .slider .slider-container .images .img-item img {
+  width: 35px;
+  height: 35px;
 }
 .page .one-product .scroll-boxes .product-box .img-slider-box .slider .video {
   padding: 10px;
@@ -132,6 +149,9 @@ body {
   gap: 10px;
   align-items: center;
 }
+.page .one-product .scroll-boxes .product-box .content .code-box .icons .fill-red {
+  fill: #FF0000;
+}
 .page .one-product .scroll-boxes .product-box .content .color-memory-box {
   display: flex;
   align-items: center;
@@ -148,6 +168,15 @@ body {
   align-items: center;
   justify-content: center;
 }
+.page .one-product .scroll-boxes .product-box .content .color-memory-box .color-box .colors .black {
+  border: 1px solid #2F2F2F;
+}
+.page .one-product .scroll-boxes .product-box .content .color-memory-box .color-box .colors .red {
+  border: 1px solid #FF0000;
+}
+.page .one-product .scroll-boxes .product-box .content .color-memory-box .color-box .colors .yellow {
+  border: 1px solid #F3CC00;
+}
 .page .one-product .scroll-boxes .product-box .content .color-memory-box .color-box .colors div {
   display: flex;
   align-items: center;
@@ -155,13 +184,12 @@ body {
   padding: 3px;
   border-radius: 50%;
   background-color: #ededed;
+  border: 1px solid #ededed;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-}
-.page .one-product .scroll-boxes .product-box .content .color-memory-box .color-box .colors .active-color {
-  border: 1px solid red;
+  cursor: pointer;
 }
 .page .one-product .scroll-boxes .product-box .content .color-memory-box .memory-box {
   display: flex;
@@ -181,6 +209,7 @@ body {
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
   padding: 7px;
+  cursor: pointer;
 }
 .page .one-product .scroll-boxes .product-box .content .color-memory-box .memory-box .memories .active-memory {
   border: 1px solid #f58634;
@@ -263,6 +292,9 @@ body {
   width: 100%;
   height: 1px;
   background-color: #ededed;
+}
+.page .one-product .scroll-boxes .evaluation-box .top {
+  margin-top: 20px;
 }
 .page .one-product .scroll-boxes .evaluation-box .comment-boxes {
   display: flex;
@@ -438,6 +470,7 @@ body {
   width: 240px;
   background-color: #f58634;
   color: white;
+  border: none;
   border-radius: 4px;
   font-size: 16px;
   padding: 10px 0;
